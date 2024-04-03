@@ -2,7 +2,7 @@ import tenseal as ts
 import sqlite3
 import os
 
-candidatesDict = {1: "Yeti", 2: "Big Mac", 3: "BuffaloJ91"}
+candidatesDict = {1: "Peter Griffin", 2: "Travis Scott", 3: "Lebron James"}
 DB_TABLE_NAME = "testElection"
 
 
@@ -58,7 +58,7 @@ def decrypt_result(result_hex):
     return result.decrypt(privateContext.secret_key())
 
 if __name__ == "__main__":
-    print("+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n")
+    print("\n+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n")
     print("[*] Welcome to Homomorphic Vote Counting!\n")
     count_all_votes()
     print("\n+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+")

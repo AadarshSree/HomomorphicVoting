@@ -6,7 +6,7 @@ import random
 username = ""
 vote_list = [random.randint(1000,9999),0,0,0]
 
-candidatesDict = {1: "Yeti", 2: "Big Mac", 3: "BuffaloJ91"}
+candidatesDict = {1: "Peter Griffin", 2: "Travis Scott", 3: "Lebron James"}
 
 DB_TABLE_NAME = "testElection"
 
@@ -50,11 +50,11 @@ def print_vote_selection_menu():
 
 def print_voter_login_menu():
     os.system('clear')
-    print("+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+")
-    print("Welcome to Homomorphic e-Voting !")
-    t_username = input("Username: ")
-    print("+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+")
-    print("Hello " + t_username + ", Welcome!")
+    print("\n+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+")
+    print("\nWelcome to Homomorphic e-Voting !")
+    t_username = input("[*] Username: ")
+    print("\n+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+")
+    print("\nHello " + t_username + ", Welcome!")
     os.system('sleep 1')
     
     return t_username
