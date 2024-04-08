@@ -33,12 +33,18 @@ def count_all_votes():
     counted_result = decrypt_result(sum.serialize().hex())[1:]
     max_index = counted_result.index(max(counted_result))+1
     print("[*] The Vote Tally: ",counted_result)
+    print("")
+
+    for i, count in enumerate(counted_result, start=1):
+        print(f"[{i}] {candidatesDict[i]}: {count}")
+
+
     # print(f"[*] The Winner is: {candidatesDict[max_index]}")
 
     #need to implement tie logic
 
     if counted_result.count(max(counted_result)) == 1:
-        print(f"[*] The Winner is: {candidatesDict[max_index]}")
+        print(f"\n[*] The Winner is: {candidatesDict[max_index]}")
 
     else:
         print("[*] There is a tie!")
@@ -58,8 +64,9 @@ def decrypt_result(result_hex):
     return result.decrypt(privateContext.secret_key())
 
 if __name__ == "__main__":
+    os.system('clear')
     print("\n+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n")
     print("[*] Welcome to Homomorphic Vote Counting!\n")
     count_all_votes()
-    print("\n+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+")
+    print("\n+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n\n")
     # print(os.path.abspath('.'))

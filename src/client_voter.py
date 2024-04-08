@@ -27,6 +27,7 @@ def insert_vote_into_db():
     except Exception as e:
         print(e)
         connection.rollback()
+        exit(1)
 
     connection.close()
     return
@@ -35,11 +36,11 @@ def print_vote_selection_menu():
     os.system('clear')
     print("+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+")
     print(f"Hi {username}, Please select a candidate to vote for:")
-    print("1. "+candidatesDict[1])
+    print("\n1. "+candidatesDict[1])
     print("2. "+candidatesDict[2])
     print("3. "+candidatesDict[3])
     print("4. Exit")
-    print("+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+")
+    print("+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+\n")
     selection = input("Enter your selection: ")
 
     if selection not in ['1','2','3','4']:
@@ -68,9 +69,9 @@ def vote_handler():
         print("[*] Exiting...")
         exit(0)
     
-    print("[*] You have selected candidate#" + vote_id + " - " + candidatesDict[int(vote_id)])
+    print("\n[*] You have selected candidate#" + vote_id + " - " + candidatesDict[int(vote_id)])
     vote_list[int(vote_id)] = 1
-    print(vote_list)
+    # print(vote_list)
 
     try:
         insert_vote_into_db()
@@ -78,8 +79,8 @@ def vote_handler():
         print("[*] Error inserting vote into db: " + str(e))
         exit(1)
 
-    print("[*] Your Vote has been recorded!")
-    print("+---------------------------------------------------------------+")    
+    print("\n[*] Thank you "+username+", Your Vote has been recorded!")
+    print("+-------------------------------------------------------------+")    
 
 if __name__ == "__main__":
     print("[*] Hello World!")
